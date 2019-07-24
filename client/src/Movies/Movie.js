@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import MovieCard from "./MovieCard";
 import axios from "axios";
+
+import MovieCard from "./MovieCard";
 
 const Movie = props => {
   const [movie, setMovie] = useState();
 
+  // Sweet! Movie component is receiving id from the Route component.
   console.log("props", props.match.params.id);
-
-  const idParams = props.match.params.id;
+  const id = props.match.params.id;
   useEffect(() => {
-    const id = idParams;
     // change ^^^ that line and grab the id from the URL
     // You will NEED to add a dependency array to this effect hook
 
@@ -21,7 +21,7 @@ const Movie = props => {
       .catch(error => {
         console.error(error);
       });
-  }, [idParams]);
+  }, [id]);
 
   // Uncomment this only when you have moved on to the stretch goals
   const saveMovie = () => {
